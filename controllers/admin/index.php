@@ -24,40 +24,12 @@
 *  International Registered Trademark & Property of PrestaShop SA
 */
 
-if(!defined('_PS_VERSION_')){
-    exit;
-}
+header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
 
-class BasicModule extends Module{
-    
-    public function __construct()
-    {
-        $this->name = "basicmodule";
-        $this->tab = "other";
-        $this->version = "1.0";
-        $this->author = "Iwo Rutka";
-        $this->need_instance = 0;
-        $this->ps_versions_compliancy = [
-            "min" => "1.7",
-            "max" => _PS_VERSION_
-        ];
-        $this->bootstrap = true;
-        parent::__construct();
-        $this->displayName = $this->l("PrestaShop Basic Module");
-        $this->description = $this->l("Basic module for PrestaShop");
-        $this->confirmUninstall = $this->l("Are You Sure?");
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
 
-    }
-
-    public function install()
-    {
-        return parent::install() && $this->registerHook('registerGDPRConsent');
-
-    }
-
-    public function uninstall()
-    {
-        return parent::uninstall();
-        
-    }
-}
+header('Location: ../../../');
+exit;
