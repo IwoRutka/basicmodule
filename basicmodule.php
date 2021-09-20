@@ -60,4 +60,9 @@ class BasicModule extends Module{
         return parent::uninstall();
         
     }
+    
+            // public function hookdisplayNav2($params){
+    //     $this->context->smarty->assign(['paramtest' => "Iwo"]);
+    //     return $this->display(__FILE__, 'views/templates/hook/displayNav2.tpl');
+    // }
 }
